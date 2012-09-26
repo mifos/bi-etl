@@ -4,6 +4,7 @@ import org.apache.log4j.Logger;
 import org.pentaho.di.core.KettleEnvironment;
 import org.pentaho.di.core.exception.KettleException;
 import org.pentaho.di.core.logging.LogLevel;
+import org.pentaho.di.core.util.EnvUtil;
 import org.pentaho.di.job.Job;
 import org.pentaho.di.job.JobMeta;
 
@@ -22,10 +23,11 @@ public class RunKettleJob {
                 } else {
                     KettleEnvironment.init();
                 }
+                EnvUtil.environmentInit();
                 JobMeta jobMeta = new JobMeta(args[0], null);
                 Job job = new Job(null, jobMeta);
                 job.setName(Thread.currentThread().getName());
-                job.setLogLevel(LogLevel.BASIC);
+                job.setLogLevel(LogLevel.valueOf(args[5]));
                 job.run();
                 job.waitUntilFinished();
                 if (job.getResult() != null && job.getResult().getNrErrors() != 0) {
