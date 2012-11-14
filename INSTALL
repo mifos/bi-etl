@@ -1,0 +1,82 @@
+If you want configure you must install some missing dependency:
+
+mvn install:install-file 
+	-DgroupId= 
+	-DartifactId=
+	-Dversion=
+	-Dpackaging=
+	-Dfile= 
+	-DgeneratePom=
+
+When you install all missing dependency you must edit kettle-core pom.xml file and add this dependency:
+<dependencies>
+<dependency>
+<groupId>pentaho.kettle</groupId>
+<artifactId>kettle-db</artifactId>
+<version>4.0.0</version>
+</dependency>
+<dependency>
+<groupId>pentaho.kettle</groupId>
+<artifactId>kettle-vfs</artifactId>
+<version>4.0.0</version>
+</dependency>
+<dependency>
+<groupId>pentaho.kettle</groupId>
+<artifactId>kettle-engine</artifactId>
+<version>4.0.0</version>
+</dependency>
+<dependency>
+<groupId>pentaho.kettle</groupId>
+<artifactId>kettle-ui-swt</artifactId>
+<version>4.0.0</version>
+</dependency>
+<groupId>commons-logging</groupId>
+<artifactId>commons-logging</artifactId>
+<version>1.1</version>
+<dependency>
+<groupId>javassist</groupId>
+<artifactId>javassist</artifactId>
+<version>3.4.GA</version>
+</dependency>
+<dependency>
+<groupId>rhino</groupId>
+<artifactId>js</artifactId>
+<version>1.7R2</version>
+</dependency>
+<dependency>
+<groupId>net.sourceforge.jexcelapi</groupId>
+<artifactId>jxl</artifactId>
+<version>2.6.10</version>
+</dependency>
+<dependency>
+<groupId>pentaho</groupId>
+<artifactId>pentaho-libbase</artifactId>
+<version>1.1.6</version>
+</dependency>
+<dependency>
+<groupId>pentaho</groupId>
+<artifactId>pentaho-libformula</artifactId>
+<version>1.1.7</version>
+</dependency>
+<dependency>
+<groupId>net.sf.scannotation</groupId>
+<artifactId>scannotation</artifactId>
+<version>1.0.2</version>
+</dependency>
+<dependency>
+<groupId>simple-jndi</groupId>
+<artifactId>simple-jndi</artifactId>
+<version>0.11.1</version>
+<exclusions>
+<exclusion>
+<groupId>javax.sql</groupId>
+<artifactId>jdbc-stdext</artifactId>
+</exclusion>
+</exclusions>
+</dependency>
+<dependency>
+<groupId>javax.mail</groupId>
+<artifactId>mail</artifactId>
+<version>1.4</version>
+</dependency>
+</dependencies>
